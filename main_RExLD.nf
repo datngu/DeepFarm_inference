@@ -79,7 +79,7 @@ process IPACT_inference {
 
 process LD_compute {
     container 'ndatth/pytorch:v0.0.0'
-    publishDir "${params.outdir}/plink}", mode: 'link', overwrite: true
+    publishDir "${params.outdir}/plink", mode: 'link', overwrite: true
     memory '16 GB'
     cpus 2
 

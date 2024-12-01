@@ -34,7 +34,7 @@ chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 random_chars=$(printf "%s" "${chars:RANDOM%${#chars}:1}${chars:RANDOM%${#chars}:1}")
 
 nextflow run main_RExLD.nf -resume \
-    -w "work_dir_susie" \
+    -w "work_dir_reld" \
     -name "RExLD_${SPEC}_keras_${random_chars}" \
     --col_file "$col_file" \
     --model "$model" \
