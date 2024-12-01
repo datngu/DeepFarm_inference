@@ -33,11 +33,11 @@ col_file="$PWD/data/col_files/${SPEC}_colnames.txt"
 chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 random_chars=$(printf "%s" "${chars:RANDOM%${#chars}:1}${chars:RANDOM%${#chars}:1}")
 
-nextflow run main_susie.nf -resume \
+nextflow run main_RExLD.nf -resume \
     -w "work_dir_susie" \
-    -name "susie_pig_keras_${random_chars}" \
+    -name "RExLD_${SPEC}_keras_${random_chars}" \
     --col_file "$col_file" \
     --model "$model" \
-    --vcfs "$PWD/data/susie_pig_gvf/*.txt" \
+    --vcfs "$vcf_dir/${SPEC}/chr8.vcf.gz" \
     --genome "$genome" \
     -with-tower
