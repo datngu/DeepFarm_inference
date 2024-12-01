@@ -30,6 +30,12 @@ workflow {
 
     VCF_ch = channel.fromPath(params.vcfs, checkIfExists: true)
     IPACT_inference(VCF_ch, params.genome, params.col_file, params.model)
+    
+    PICK_string_ch = channel.from(params.pick_strings)
+    LD_compute(VCF_ch)
+    RExLD_ch = IPACT_inference.out.combine(PICK_string_ch)
+    RExLD_all_string(RExLD_ch, LD_compute.out.collect())
+
 
 }
 
